@@ -7,6 +7,9 @@
     font-family: 'Roboto', sans-serif;
 
 }
+html{
+    scroll-behavior: smooth;
+}
 body{
     max-width: 100vw;
     overflow-x: hidden;
@@ -53,6 +56,13 @@ p{
 li{
     list-style-type: none;
 }
+a{
+    text-decoration: none;
+
+}
+a:hover{
+    text-decoration: underline;
+}
 
 .nav__link{
     margin-left: 16px;
@@ -75,6 +85,78 @@ li{
 .nav__link--primary:hover{
     text-decoration: none;
 }
+
+.btn__menu{
+    background-color: transparent;
+    border: none;
+    font-size: 40px;
+    text-align: center;
+    color: #7342d6;
+    display: none;
+    
+}
+
+.menu--open{
+    max-height: 100vh;
+    overflow-y: hidden;
+}
+
+.menu__backdrop{
+    position: absolute;
+    background-color: #242424;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    /*
+    display: none; 
+    visibility: hidden;
+    transition: all 300ms ease;
+    opacity: 0;
+    transform: translate(100%);
+    o
+ */
+ transition: all 300ms ease;
+ opacity: 0.7;
+ visibility: hidden;
+}
+
+.menu--open .menu__backdrop{
+    visibility: visible;
+    opacity: 1;
+
+}
+
+.menu__links{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.menu__link{
+    color: white;
+    font-size: 40px;
+}
+
+.menu__list{
+    padding: 32px 0;
+
+}
+
+.btn__menu--close{
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    padding: 8px;
+    color: white;
+}
+
+/* LANDING */
 
 #landing{
     background-color: rgba(115,66,214,0.1);
@@ -150,6 +232,16 @@ button:active{
     margin: 0 auto;
 
     }
+
+.row__column{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.no-cursor{
+    cursor: not-allowed;
+}
 /* 
 
 
@@ -210,6 +302,7 @@ Highlights
 
 .highlight__wrapper{
     display: flex;
+    flex-wrap: wrap;
     
 
 }
@@ -219,7 +312,7 @@ Highlights
     width: calc(100% /3);
     display: flex;
     align-items: center;
-    justify-content: center;
+    
     flex-direction: column;
 
 
@@ -275,6 +368,8 @@ FEATURES
 
 .book__img{
     max-height: 380px;
+    transition: all 300ms ease;
+    cursor: no-drop;
 
 }
 
@@ -282,8 +377,114 @@ FEATURES
     margin-bottom: 8px;
     border-radius: 4px;
     overflow: hidden;
+    display: flex;
+
 }
 
 .book:hover .book__img{
-    
+    transform: scale(1.03);
 }
+
+.book__title{
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+.book__title:hover{
+    text-decoration: underline;
+    cursor: no-drop;
+}
+
+.book__ratings{
+    margin-bottom: 8px;
+    color: #fabf2a;
+}
+
+.book__price--normal{
+    text-decoration: line-through;
+    padding-right: 6px;
+    color: #bfbfbb;
+}
+
+
+/* LATEST */
+
+
+.books{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* EXPLORE */
+
+#explore{
+    background-color: rgba(115,66,214,0.1);
+
+}
+
+
+/* 
+
+FOOTER
+
+*/
+
+footer{
+    background-color: #242424;
+}
+.footer__logo{
+    display: flex;
+}
+.footer__logo--img{
+    width: 160px;
+    filter: grayscale(1) invert(1);
+}
+
+.footer__link, 
+.footer__copyright{
+    color: #fff;
+}
+
+.footer__list{
+    margin-bottom: 20px 0 24px 0;
+}
+
+.footer__link{
+    padding: 0 8px;
+}
+
+@media(max-width: 550px){
+    .nav__links{
+        display: none;
+    }
+
+    .btn__menu{
+        display: block;
+    }
+    .highlight{
+        width: 100%;
+        
+    }
+
+    .highlight:not(:last-child){
+        margin-bottom: 24px;
+    }
+}
+
+
+@media(max-width: 768px){
+    .header__description{
+        padding: 0 24px;
+    }
+    h2{
+        font-size: 40px;
+    }
+
+    button{
+        font-size: 26px;
+    }
+    .book{
+        width: 50%;
+    }
+
+    }
